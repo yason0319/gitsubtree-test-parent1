@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# pushを確認するブランチ
+readonly MASTER='master'
+readonly DEVELOP='develop'
+
+echo 'pre-push test'

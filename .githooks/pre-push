@@ -1,6 +1,9 @@
 #!/bin/bash
 
 # pushを確認するブランチ
+
+# subtreeディレクトリ配下を探し、そこに変更があった場合、エラーを返す
+
 readonly MASTER='master'
 readonly DEVELOP='develop'
 

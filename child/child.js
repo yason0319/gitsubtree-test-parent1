@@ -11,4 +11,5 @@ function onlyParent1 () {
 
 function onlyChild () {
   console.log('only child');
+  console.log('add at parent1')
 }

@@ -8,16 +8,29 @@ readonly DEVELOP='develop'
 
 echo 'pre-push start'
 
+
 ### 条件 ###
 # develop/masterへのpushかどうか
 # subtree配下のファイルに変更があるかどうか
 
 while read local_ref local_sha remote_ref remote_sha
 do
+  echo $local_ref
   if [ "${remote_ref##refs/heads/}" = $MASTER ] || [ "${remote_ref##refs/heads/}" = $DEVELOP ]; then
     echo 'you will push to remote master or develop branch'
+    DIFF_FILES=`git diff master origin/master --name-only`
+    echo 'diff files:'
+    echo $DIFF_FILES
+    # とりあえず決め打ち。あとで別ファイルから取得できるようにする
+    if [ "`echo $DIFF_FILES | grep 'child'`" ]; then
+      echo 'fukumimasu'
+      # subtreeへ適用させる
+      # pushToSubtree
+    else
+      echo 'nothing to do because there are no changes in subtree'
+    fi
   else
-    echo 'nothing to do'
+    echo 'nothing to do because this is not push to develop or master'
   fi
 done
 

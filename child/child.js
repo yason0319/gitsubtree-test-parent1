@@ -6,3 +6,7 @@ function child () {
 function onlyParent1 () {
   console.log('only parent1');
 }
+
+function onlyChild () {
+  console.log('only child');
+}
